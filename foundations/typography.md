@@ -87,3 +87,43 @@ Google Fonts · Fontshare · Typewolf (what fonts real sites use) · Fontpair (p
 
 ## 6. Loading fonts
 Implementation per platform (next/font, theme.json, Shopify font settings) lives in `mediums/web-ui/implementation.md`.
+
+## 7. Readability-first shortlist (default recommendations)
+When the user wants "top, readable, simple" fonts, start here. All are free (OFL-1.1, verified via Fontsource Nov 2026), have multiple weights, and work well at UI sizes.
+
+**What makes a font readable** [Expert]: generous x-height · open apertures (c, e, s don't close up) · distinct I / l / 1 and 0 / O · moderate stroke contrast · enough weights (at least 400/500/600/700) · good hinting at small sizes · the language support you need.
+
+| Font | Character | Best for | Notes |
+|---|---|---|---|
+| **Inter** | Neutral, highly legible UI sans | Apps, dashboards, SaaS | Excellent at small sizes; very common, so pair it with a distinctive display font or strong layout |
+| **Plus Jakarta Sans** | Modern geometric-humanist, friendly | SaaS, startups, marketing | Distinctive without being loud |
+| **Manrope** | Semi-condensed, modern, technical | Fintech, tech, product sites | Great numbers |
+| **DM Sans** | Low-contrast geometric, clean | Marketing, portfolios | Pairs well with serifs |
+| **Figtree** | Friendly, clean geometric | Consumer, education, health | Very readable body text |
+| **Source Sans 3** | Humanist, calm, long-form friendly | Docs, content, education | Large character set |
+| **Public Sans** | Neutral, institutional | Government, nonprofit, B2B | Strong, plain, trustworthy |
+| **Atkinson Hyperlegible Next** | Designed for low-vision readers | Accessibility-first sites, healthcare, education | Extra character distinction |
+| **Lexend** | Designed around reading-proficiency research | Education, kids, reading-heavy UIs | Wide spacing |
+| **IBM Plex Sans** | Engineered, corporate-technical | Enterprise, dev tools | Has Mono and Serif siblings + Arabic |
+| **Work Sans / Albert Sans / Hanken Grotesk** | Clean grotesques | Agencies, editorial UI | Good alternatives to Inter |
+| **Noto Sans** | Neutral, huge language coverage | Multilingual sites | Matching Noto scripts available |
+
+Serif options for editorial reading: **Newsreader** (text) and **Fraunces** (display); see §3 and §4 for more serifs.
+
+## 8. How to present font options to the user (always give choices)
+Never pick a font silently. Present **3 options** in the brief, with one recommended:
+```
+FONT OPTIONS (all free, OFL)
+★ Recommended: Plus Jakarta Sans: friendly-modern, very readable at 14–16px, distinct from competitors (they use Inter/Roboto). Weights 400/500/700/800.
+  Option B: Manrope + Instrument Serif (display): more editorial/premium; serif for 1–2 headline words only.
+  Option C: Atkinson Hyperlegible Next: maximum legibility (older or low-vision audience); less personality, so carry the brand through color and layout.
+Why ★: <tie to personality words, audience, competitor gap, language support>
+```
+- Show the options rendered: a specimen in a style tile or a quick HTML preview with real headline + body copy, at mobile and desktop sizes.
+- Check each option against the competitor fonts found in research. Using the same font as the main competitor weakens differentiation.
+
+## 9. Multi-language & script support
+- Check the languages before choosing: not every font has Arabic, Urdu (Nastaliq), Devanagari, Cyrillic or Vietnamese glyphs.
+- Verified free options: **Noto Sans Arabic**, **Noto Nastaliq Urdu** (traditional Urdu style; needs more line height), **IBM Plex Sans Arabic**; the **Noto** family covers most scripts.
+- RTL layouts: `dir="rtl"`, CSS logical properties (`margin-inline-start`, `padding-inline`), mirrored icons where direction matters (arrows), not mirrored where it doesn't (logos, media controls).
+- Pair Latin and non-Latin fonts with similar weight and x-height so mixed text looks even.

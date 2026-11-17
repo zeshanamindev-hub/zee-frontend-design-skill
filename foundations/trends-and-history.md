@@ -2,6 +2,18 @@
 
 **Rule:** trends are tools, not defaults. Use **at most one** as a page's signature, only when it fits the brand, audience and content, and never at the cost of readability. *"Prioritize readability, accessibility and task clarity before adopting decorative trends."* [Source: PDF]
 
+## 0. Refresh trends every time (runtime rule)
+This file is a **dated snapshot (Nov 2026)**. Before designing any page, run Track 4 of `workflows/research-pipeline.md`: search current-year trends, Awwwards Sites of the Day this month, and the industry. Record each trend with date + source and a use / adapt / skip decision.
+
+### Late-2026 signals (snapshot from Nov 2026 research; re-verify)
+- **Intention and restraint** over flashy visuals; a return to predictable patterns users trust.
+- **Predictive / personalized UX**, kept transparent and reversible: users can override suggestions and edit pre-filled fields.
+- **Cognitive-inclusive and accessible design** as a baseline, not an add-on.
+- **Conversational and agent-ready interfaces**, plus designing for AI search (clear, crawlable, helpful content).
+- **Tactile depth:** subtle textures, layered depth, materiality after the flat era.
+- **Expressive systems:** Apple Liquid Glass and Google Material 3 Expressive (2025) continue to influence UI.
+- **Conversion-focused design**: designers are judged on outcomes, not just visuals.
+
 ## 1. Current trend toolbox [Source: 3 trend carousels, 2026–2027 predictions]
 
 | Trend | What it is | Use when | Avoid when | Build notes [Expert] |

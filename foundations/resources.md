@@ -51,3 +51,22 @@ ChatGPT · Midjourney · Ideogram · Claude · Galileo AI · Uizard · Relume AI
 
 ## Design system references [Source: PDF]
 Apple Human Interface Guidelines · Google Material Design (Material 3) · Microsoft Fluent
+
+## Patterns, textures & backgrounds
+| Tool | What | License note (checked Nov 2026) |
+|---|---|---|
+| Hero Patterns (heropatterns.com) | Repeatable SVG background patterns by Steve Schoger | **CC BY 4.0**: attribution required |
+| Haikei (haikei.app) | SVG waves, blobs, steps, peaks, layered shapes, grids, gradients | Free app; check pricing page for any paid features |
+| Pattern Monster (pattern.monster) | Repeatable SVG pattern generator | Has a Pro tier; check terms |
+| fffuel (fffuel.co) | Free SVG makers: noise (nnnoise), grainy gradients (gggrain), fluid gradients, blobs, waves, color tools | Presented as free; check its license page |
+*Rule:* a pattern or texture must support the concept (e.g. blueprint grid for tech, paper grain for organic). Keep it low-contrast behind text, and keep files tiny (SVG or small tiled PNG/AVIF).
+
+## Micro-interaction & UI motion references
+UI animation libraries and examples: Motion (motion.dev) examples · GSAP demos (gsap.com) · Rive community files · LottieFiles free animations · Animista (CSS presets)
+*Rule:* copy the **timing and intent**, not the asset, unless its license allows reuse.
+
+## Motion graphics, video, GIF & AI image tools
+See the medium modules for the full, dated tool lists:
+- `mediums/motion-graphics/motion-graphics.md`: After Effects, Rive, Lottie Creator, Jitter, Cavalry, Spline, GIF tooling
+- `mediums/video/video.md`: AI video generators, editors, code-driven video (Remotion), screen-recording tools
+- `mediums/graphics/graphics.md`: social/marketing graphics, AI image generators, sizes

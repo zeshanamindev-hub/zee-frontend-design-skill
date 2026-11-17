@@ -33,8 +33,12 @@ mediums/<name>/ ← only what is specific to producing that output.
 ## 8. Final polish checklist
 ```
 
-## Ideas already noted for future mediums
-- **Motion graphics:** easing language per art direction, kinetic typography rules, Lottie/Rive export, loop design.
-- **Video:** concept → script → storyboard → shot list; aspect ratios per platform; captions burned-in vs SRT; Remotion for code-driven video.
-- **Social graphics:** carousel systems (the source images themselves are good examples: page counters, swipe cues, cover → value slides → CTA).
-- **Brand/graphics:** logo usage, brand boards, print (CMYK) vs screen (RGB).
+## Mediums already built (v0.2)
+- `web-ui/`, `motion-graphics/`, `video/`, `graphics/`
+
+## Ideas for future mediums
+- **Presentations / pitch decks:** slide systems, data storytelling.
+- **Email design:** table-based layouts, dark-mode email, client quirks.
+- **Brand identity / print:** logo systems, brand boards, CMYK/Pantone production.
+- **Mobile app UI (native):** iOS HIG / Material 3 specifics, platform components.
+- **Data dashboards:** chart selection, density, real-time states.

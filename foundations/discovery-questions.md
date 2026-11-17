@@ -5,7 +5,8 @@ Use with the `AskUserQuestion` tool: max 4 questions per call, 2–4 options per
 **Skip rules**
 - Skip any question the prompt, CLAUDE.md, or the codebase (Step 1) already answers.
 - Skip Round 2 brand questions if a design system / brand guideline exists. Confirm it in one line instead.
-- Never ask more than ~10 questions in total. Ask what changes the design, not what is nice to know.
+- Never ask more than ~12 questions in total. Ask what changes the design, not what is nice to know.
+- For motion, video or graphics jobs, add the medium-specific questions from that medium's file.
 - If the user says "you decide", choose, and write the choice + reason in the brief.
 
 ---
@@ -28,6 +29,13 @@ Consumers (B2C) · Business buyers (B2B) · Developers / technical users · Inte
 Premium & minimal · Bold & energetic · Friendly & playful · Trustworthy & corporate
 *Why it matters:* drives the font mood (see typography.md catalog) and color temperature.
 
+**4b. Business type** (skip if obvious) → picks the blueprint in `mediums/web-ui/business-layouts.md`
+SaaS / software · E-commerce · Local service · Agency/consultant (or type: restaurant, real estate, education, healthcare, law, fintech, nonprofit, portfolio, event, hotel, B2B, app, blog, marketplace)
+
+**4c. Competitors** (always ask, then ALSO search on your own; see research-pipeline Track 2)
+"Who are your 3–5 main competitors, or sites you want to beat? Any sites you admire outside your industry?" (free text)
+Options if they don't know: "Find them for me (Recommended)" · "I'll share later"
+
 ## Round 2 — Brand & visual direction
 
 **5. Brand assets?**
@@ -44,6 +52,12 @@ Safe & clean (Recommended for B2B/corporate) · Balanced, with one signature mom
 **8. References?** (free text)
 "Share 1–3 sites or screenshots you like, and one you dislike, plus what you like about each."
 *Use:* extract the pattern (type, spacing, color temperature), never copy the layout.
+
+**8b. SEO & content** (pages that need search traffic)
+Main keyword/topic you want to rank for? Target location/language? Existing content to keep? Options: "Research keywords for me (Recommended)" · "I have keywords" · "SEO not needed (internal app)"
+
+**8c. Conversion & measurement**
+What counts as success? (purchase, lead form, call, booking, signup) · Do you have analytics data or known drop-off points? Options: "Yes, I'll share" · "No data yet" · "Not sure"
 
 ## Round 3 — Constraints
 
