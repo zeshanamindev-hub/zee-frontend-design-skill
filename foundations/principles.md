@@ -1,4 +1,6 @@
-# Design principles
+# Design principles & rules
+
+The 9 core principles, the before → after fixes and the layout system. The **laws behind them** (Gestalt, Hick, Fitts, optical corrections, light/depth and motion physics) are in `design-laws-and-physics.md`; the color rules and color physics are in `color-system.md`.
 
 ## 1. The 9 core principles [Source]
 

@@ -1,5 +1,19 @@
 # Changelog — frontend-design-director
 
+## v0.3.0 — 2026-11-17
+**Added**
+- **Browser tools** (`toolchain/browser-tools.md`): Playwright MCP + Claude in Chrome setup steps (verified against the Playwright MCP README and Claude Code docs), when to use which, and how each workflow uses them
+- **`scripts/capture.mjs`**: multi-width screenshots (with horizontal-overflow warnings) + exact-size HTML→PNG rendering. Tested with Chrome: caught a real CSS-grid overflow at 375/768px; no false positives after the fix
+- **Asset toolchain** (`toolchain/asset-generation.md`): SVG creation (hand-coded, SVGO, Rough.js, Satori, resvg, vtracer, Potrace), image processing (sharp, Playwright render), AI image tools (hosted + open-weight with per-checkpoint licenses), code-driven video (Motion Canvas MIT, Remotion license terms verified, Manim MIT, FFmpeg), open-weight video models (Wan 2.2 / Mochi 1 Apache-2.0, LTX-2 community license, HunyuanVideo), motion assets
+- **Competitor analysis workflow** (`workflows/competitor-analysis.md`): business + search + aspirational competitors, captures, review mining, 12-dimension scorecard, gaps → hand-offs
+- **Content strategy workflow** (`workflows/content-strategy.md`): messaging foundation, keyword → page map, content briefs, section copy, on-page elements, QA, publish & monitor (Search Console, Bing Webmaster Tools, IndexNow)
+- **Content standard rewritten** (`foundations/content-copywriting.md`): Google (helpful content, E-E-A-T, Who/How/Why, spam policies incl. scaled content abuse, Oct 2026 main-content/effort/fake-author guidance, May 2026 AI-search guide) + Bing (Feb 2026 guidelines, Copilot grounding, IndexNow); engagement writing; SEO wording rules; wording by page type; banned AI copy; Content QA checklist
+- **Design laws & physics** (`foundations/design-laws-and-physics.md`): Gestalt, 14 UX laws, reading patterns, visual weight, optical corrections, light/shadow/depth, motion physics, proportion math
+- **Color rules & physics quick sheet** at the top of `color-system.md`
+- **Anti-generic gate**: 3 gates (G1–G3), a 12-point generic-design detector score, banned defaults by category; enforced inline in SKILL.md
+- **Inspiration links**: always asked first in discovery; every reference is processed (screenshots, Figma MCP, images)
+- SKILL.md: visible foundation-layers table, inline anti-generic gate, new modes (competitor analysis, site content, SVG/graphics), browser step
+
 ## v0.2.0 — 2026-11-17
 **Added**
 - **Work modes:** full page/site · single section · design audit · CRO/SEO/content · motion & micro-interactions · video · graphics

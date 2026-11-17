@@ -13,7 +13,7 @@ mediums/<name>/ ← only what is specific to producing that output.
 2. **Add these files** (copy the outline below):
    - `composition-patterns.md`: layouts/structures specific to the medium (e.g. video: shot list, scene structure, safe areas; social: 1:1, 4:5, 9:16 grids)
    - `craft-details.md`: the polish details that make this medium look premium (e.g. motion: easing curves, timing, frame rates; video: pacing, captions, audio)
-   - `implementation.md`: tools and code (e.g. Remotion/React video, Lottie/Rive, After Effects export settings, ffmpeg, Canvas/SVG export, image formats and sizes)
+   - `implementation.md`: tools and code (reuse `toolchain/asset-generation.md` and `toolchain/browser-tools.md` where possible) (e.g. Remotion/React video, Lottie/Rive, After Effects export settings, ffmpeg, Canvas/SVG export, image formats and sizes)
    - Optional: `discovery-extra.md` with medium-specific questions (duration, aspect ratio, voiceover, platform)
 3. **Register it in `SKILL.md`** in the "Medium router" table: one row with the medium name, its trigger phrases, and its folder.
 4. **Update the frontmatter `description`/`when_to_use`** with the new trigger phrases, so Claude Code auto-loads the skill for that work (combined text is truncated at 1,536 characters in the skill listing, so keep it tight).

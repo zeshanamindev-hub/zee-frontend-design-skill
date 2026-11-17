@@ -13,7 +13,8 @@ Use when the user asks to review, audit, critique or improve an existing site, p
 | Lens | Check with |
 |---|---|
 | **Visual design** | 60/30/10 · one color leads · type system · hierarchy · spacing · alignment · 9 principles (`foundations/principles.md`) |
-| **AI-slop / genericness** | `foundations/anti-ai-slop.md` markers · logo-swap test |
+| **AI-slop / genericness** | `foundations/anti-ai-slop.md`: generic-design detector score (0–12), banned defaults, logo-swap test |
+| **Design laws & physics** | `foundations/design-laws-and-physics.md`: Gestalt grouping, Hick/Fitts, visual weight, optical alignment, light/shadow consistency, motion physics |
 | **Usability** (Nielsen's 10 heuristics) | visibility of status · match with real world · user control · consistency · error prevention · recognition over recall · flexibility · minimalist design · error recovery · help |
 | **Accessibility** (WCAG 2.2 AA) | contrast (run contrast.py), keyboard, focus visible, alt text, headings, labels, target size, reduced motion |
 | **CRO** | `foundations/cro.md` audit checklist: value prop clarity, CTA, friction, trust, objections |

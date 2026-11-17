@@ -66,6 +66,7 @@ Next.js: `next/image` with `sizes` and `priority` for the LCP image; `fill` + `o
 
 ## 7. Common responsive bugs to check
 - [ ] Horizontal scroll from an element wider than the viewport (`overflow-x` sneaks in from 100vw elements, long words, wide tables)
+- [ ] CSS Grid `1fr` columns growing to fit wide content (images, code, tables): use `minmax(0, 1fr)` or `min-width: 0` on grid/flex children. `scripts/capture.mjs shots` flags any horizontal overflow per width
 - [ ] `100vh` jumps on mobile browsers: use `100dvh` / `100svh`
 - [ ] Inputs under 16px trigger zoom on iOS
 - [ ] Hover-only interactions unusable on touch

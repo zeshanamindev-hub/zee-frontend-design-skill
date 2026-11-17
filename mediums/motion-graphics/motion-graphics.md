@@ -1,6 +1,6 @@
 # Motion graphics: planning, principles, tools, export
 
-Covers: UI motion systems, animated logos, kinetic typography, explainer animations, social motion posts, Lottie/Rive animations for web/apps, animated GIFs. Uses all `foundations/` (60/30/10, type, art direction, anti-slop) plus this file. Tool facts checked **Nov 2026**; verify pricing/features before recommending a purchase.
+Covers: UI motion systems, animated logos, kinetic typography, explainer animations, social motion posts, Lottie/Rive animations for web/apps, animated GIFs. Uses all `foundations/` (60/30/10, type, art direction, design laws & physics, anti-slop) plus this file. Production tools and licenses: `toolchain/asset-generation.md`. Recording interactions: `toolchain/browser-tools.md`. Tool facts checked **Nov 2026**; verify pricing/features before recommending a purchase.
 
 ## 1. Discovery (add to the standard questions)
 - What is it for? (website hero/UI, product demo, social post/reel, ad, explainer, logo sting, presentation)
@@ -42,7 +42,9 @@ UI-specific:
 | **Maxon Autograph** | Layer-based motion & compositing | Video | Reported as newly free in 2026; verify |
 | **Blender** | 3D motion, product renders | Video/images | Free, open source |
 | **Code: CSS / Motion / GSAP** | Production UI motion on websites | Live code | Motion (npm `motion`) and GSAP (Standard no-charge license) |
-| **Code: Remotion** | Programmatic/data-driven videos with React | MP4 | Custom license (not MIT), so check remotion.dev for company-size terms |
+| **Code: Motion Canvas** | Open-source (MIT) code-driven animation & explainers in TypeScript, with editor | MP4 / image sequence | `npm init @motion-canvas@latest` |
+| **Code: Remotion** | Programmatic/data-driven videos with React | MP4 | Free for individuals and companies up to 3 people; paid Company License above (remotion.dev/license) |
+| **Code: Manim** | Technical/math animation (Python) | MP4 | MIT |
 | **AI motion** | Quick explorations (Runway, Kling and similar via video.md) | Video | Use for ideation/B-roll; brand-critical motion stays hand-crafted |
 
 **How to choose:**

@@ -2,6 +2,42 @@
 
 "AI slop" = generic, repetitive, visually polished but **weakly justified** design decisions. The problem is **sameness, not AI**. Gradients, dark themes, cards, glass and big type are not bad in themselves. They become slop when added **by default** instead of chosen for a goal. [Source: DOCX]
 
+## 0. The anti-generic gate (mandatory, runs 3 times)
+| Gate | When | Question |
+|---|---|---|
+| **G1: Direction** | Before proposing directions (Step 4) | Would this direction look the same for any competitor? Does it repeat the clichés found in competitor analysis? |
+| **G2: Section plan** | Before building each section | Is the pattern chosen for this content, or is it the default? Is there real content and proof? |
+| **G3: Final** | Before handover | Run the detector below, the logo-swap test and the remove test on the finished page |
+
+### Generic-design detector (score the design; 1 point per "yes")
+1. Could the logo be swapped with a competitor's and the page still work unchanged?
+2. Is the hero the default formula (pill badge → centered headline → two buttons → floating mockup/blob)?
+3. Does any section use 3+ identical icon cards?
+4. Is the palette a purple/blue/pink gradient or 4+ competing hues, with no clear 60/30/10?
+5. Is the font the default (Inter/Roboto/system) with no deliberate reason, or are 3+ families mixed?
+6. Are radius, shadow and spacing identical everywhere (`rounded-2xl shadow-lg` on all)?
+7. Is every section centered with the same structure and rhythm?
+8. Are there decorative blobs, glows, glass panels or 3D shapes that would not be missed?
+9. Does the copy include filler ("Unlock", "Seamless", "Elevate", "Revolutionize") or invented stats/testimonials?
+10. Does motion appear on every scroll or hover without communicating anything?
+11. Are stock photos or illustrations generic (handshakes, laptops, abstract people) instead of real product, people or work?
+12. Is there no signature move, nothing a visitor would remember tomorrow?
+**Score 0–1:** pass · **2–3:** fix the flagged items before handover · **4+:** generic; go back to the concept and direction (art-directions.md). Report the score in the handover.
+
+### Banned defaults by category (unless a documented reason says otherwise)
+| Category | Banned default | Do instead |
+|---|---|---|
+| Layout | Centered-everything, identical section skeletons, 3-card grids | Composition by content type; asymmetry and rhythm on purpose |
+| Hero | Pill badge + gradient headline + 2 buttons + floating mockup | Concept-driven hero archetype (composition-patterns.md §2) |
+| Color | Purple→blue gradients, rainbow palettes, neon on black | 60/30/10 with one leading hue, tinted neutrals |
+| Type | Default font with no reason; 3+ families; same size/weight everywhere | One strong family, deliberate scale, contrast of weight and size |
+| Components | Same radius/shadow on everything; emoji as icons; mixed icon sets | Radius and elevation scales with roles; one icon library |
+| Imagery | Abstract blobs, generic stock, AI images with no meaning | Real product/people/work; concept-specific visuals |
+| Effects | Glass, glow and gradients as decoration | Effects only for elevation, focus, state or identity |
+| Motion | Fade-up on every element; bounce on everything | Motion that explains state, order or space; one motion personality |
+| Copy | Filler phrases, invented proof, "Submit"/"Learn more" CTAs | Specific claims in customer language, real proof, verb + outcome CTAs |
+| Content | Same structure and length on every page; AI filler pages | Page-specific intent, original value (content-copywriting.md) |
+
 ## 1. Slop markers → intentional alternative
 
 ### From "Design Without AI Slop" [Source: DOCX]

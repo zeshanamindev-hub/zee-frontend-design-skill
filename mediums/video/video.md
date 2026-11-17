@@ -44,8 +44,11 @@ DaVinci Resolve (free version; pro color + Fusion), Adobe Premiere Pro, Final Cu
 ### Screen recording / product demos
 Screen Studio (Mac, auto-zoom polished demos), Loom, Cap, OBS Studio (free).
 
-### Code-driven video
-**Remotion** (React → MP4; v4.0.x in Nov 2026): templated or data-driven videos (personalized, batch social variants, product feature videos). License is custom (not MIT): free for individuals and small teams, company license above a size threshold. Check remotion.dev before commercial use.
+### Code-driven video (Claude can build and render these in the project)
+- **Motion Canvas** (MIT, open source; default for teams): explainers, kinetic type, UI animation in TypeScript.
+- **Remotion** (React; v4.0.x): data-driven, templated, personalized videos. **Custom license:** free for individuals and companies of up to 3 people; larger companies need a paid Company License (verified at remotion.dev/license, Nov 2026).
+- **Manim Community** (MIT): technical/math explainers. **FFmpeg**: editing, encoding, captions, GIFs.
+- Setup commands, licenses and the open-source AI video models (Wan 2.2, Mochi 1 under Apache-2.0; LTX-2 community license; HunyuanVideo): `toolchain/asset-generation.md` §4.
 
 ### Choosing quickly
 - Polished realistic clip with sound → **Veo 3.1**
@@ -53,7 +56,8 @@ Screen Studio (Mac, auto-zoom polished demos), Loom, Cap, OBS Studio (free).
 - Precise control, editing existing footage → **Runway**
 - Must be legally safest for ads/clients → **Adobe Firefly**
 - Product UI demo → **screen recording + motion graphics** (not AI generation: show the real product)
-- Many variants from data → **Remotion**
+- Many variants from data → **Remotion** (license permitting) or **Motion Canvas / Revideo** (MIT)
+- Must be open source / self-hosted AI generation → **Wan 2.2** (Apache-2.0) via ComfyUI or Diffusers on a GPU
 
 ## 4. Website video best practices
 - Hero/background video: muted, loop, `playsinline`, **poster image**, short (6–15s), compressed (H.264 MP4 + WebM/AV1), lazy-load if below the fold; pause button (WCAG 2.2.2 for motion over 5s); static poster for `prefers-reduced-motion` and slow connections.

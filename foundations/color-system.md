@@ -1,5 +1,24 @@
 # Color system
 
+## 0. Color rules: quick sheet (apply on every design)
+**Rules**
+1. **60/30/10:** 60% dominant (backgrounds, large areas) · 30% secondary (cards, sections, structure, text) · 10% accent (CTAs, highlights, key icons). [Source]
+2. **One color leads.** One accent hue carries attention; everything else supports it. [Source]
+3. **Value (lightness) before hue:** hierarchy must survive in grayscale.
+4. **Contrast is non-negotiable:** text ≥ 4.5:1, large text & UI parts ≥ 3:1 (contrast.py).
+5. **Never color alone** for meaning: add icon, label or pattern (about 1 in 12 men have a color vision deficiency).
+6. **Tinted neutrals,** never dead grey: warm for human/organic brands, cool for tech/precision.
+7. **Build scales in OKLCH** (palette.py), not by mixing with black/white.
+8. **Semantic colors** (success/warning/error/info) are for status only, never decoration.
+9. **Accent discipline:** if the accent is everywhere, it directs nothing. Reserve it for the primary action.
+10. **Judge colors in context** (on every surface they appear on), not as isolated swatches.
+11. **Dark mode is its own palette:** off-white text, near-black surfaces, lighter = higher, slightly calmer accents.
+12. **Gradients only with a reason** (light source, brand identity), same-hue or analogous, interpolated in OKLCH. [Source: DOCX]
+13. **Check culture and category:** meanings vary; decide to fit or break category conventions on purpose (from competitor research).
+14. **Plan for print** early if the brand will be printed (CMYK gamut is smaller than screen RGB).
+
+**Color physics, in one paragraph:** screens emit light (additive RGB), print absorbs it (subtractive CMYK). Perceived lightness is not linear (that's why OKLCH beats HSL). Saturated colors look brighter than they measure (Helmholtz–Kohlrausch). Every color shifts with its surroundings (simultaneous contrast). Warm colors advance and cool colors recede. Details: §6.
+
 ## 1. The 60/30/10 rule [Source]
 
 A simple color formula for balanced, memorable, professional design.

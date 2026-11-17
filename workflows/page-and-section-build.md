@@ -20,7 +20,7 @@ Narrative check: does the order answer the questions in the order visitors ask t
 ## B. Section loop (repeat for every section)
 
 ### B1. Section research (Standard depth)
-- 3+ inspiration references for this section type (`workflows/research-pipeline.md`, Track 3)
+- The user's own references for this section first (if any), then 3+ more inspiration references (`workflows/research-pipeline.md`, Track 3)
 - How 3 competitors handle this section, and what's missing
 - CRO rules for this section (`foundations/cro.md` §4)
 
@@ -28,12 +28,14 @@ Narrative check: does the order answer the questions in the order visitors ask t
 ```
 SECTION PLAN: <name>
 Job:            the one decision this section supports
-Content:        real copy (headline, body, CTA), assets needed, data/proof (real only)
+Content:        real copy from the content brief (workflows/content-strategy.md): headline, body, CTA; assets; proof (real only)
 Pattern:        <from composition-patterns.md> · why this pattern for this content
 Hierarchy:      1st <…> → 2nd <…> → 3rd <…> (focal point)
 60/30/10 here:  which color carries what
 CRO:            friction removed · trust added · CTA wording + destination
 SEO:            heading level + keyword use · internal links · image alt · schema (if any)
+Laws applied:   e.g. Proximity for grouping, Hick (3 plans, 1 recommended), Fitts (sticky mobile CTA)
+Anti-generic G2: pattern chosen for this content (not default)? real content & proof? signature move?
 Micro-interactions: <only those that communicate state>
 Responsive plan (written per section; never "it'll stack"):
   Mobile (<640):     layout · order · what's hidden/condensed · image crop · type sizes · tap targets

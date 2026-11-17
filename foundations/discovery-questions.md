@@ -11,6 +11,15 @@ Use with the `AskUserQuestion` tool: max 4 questions per call, 2–4 options per
 
 ---
 
+## Always ask first: inspiration & materials (never skip)
+**"Do you have any inspiration or reference material?"** Ask for all of it in one question (free text + options):
+- Links to websites, apps or pages you like (and what you like about each)
+- Links or screenshots you **dislike** (just as useful)
+- Dribbble/Behance/Pinterest/Awwwards shots · Figma files · brand guidelines · competitor sites you admire
+- Existing photos, logo files, videos, copy documents
+Options: "Yes, I'll share links/files" · "No, find inspiration for me (Recommended if none)" · "Both"
+**Then process every item:** open each link with a browser tool (screenshots at 375 + 1440), read Figma via Figma MCP if connected, view images with Read. Write one line per reference: **what works · the principle behind it · how we'll adapt it (never copy)**. If the user shares nothing, run Track 3 of the research pipeline yourself.
+
 ## Round 1 — Purpose (always, unless already clear)
 
 **1. What are we designing?**
@@ -49,9 +58,7 @@ Light · Dark · Both (light default) · Both (dark default)
 Safe & clean (Recommended for B2B/corporate) · Balanced, with one signature moment · Expressive / award-level showcase
 *Why it matters:* decides whether a trend (bento, giant type, glass, neo-brutalism…) is used as the signature move.
 
-**8. References?** (free text)
-"Share 1–3 sites or screenshots you like, and one you dislike, plus what you like about each."
-*Use:* extract the pattern (type, spacing, color temperature), never copy the layout.
+**8. References?** Already collected in "Always ask first". Ask a follow-up only for gaps (e.g. "anything you dislike?").
 
 **8b. SEO & content** (pages that need search traffic)
 Main keyword/topic you want to rank for? Target location/language? Existing content to keep? Options: "Research keywords for me (Recommended)" · "I have keywords" · "SEO not needed (internal app)"

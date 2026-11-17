@@ -52,7 +52,8 @@ Rules: check commercial-use terms for the plan used; never generate real people,
 | Favicon set | SVG + 32×32 PNG + 180×180 apple-touch-icon + 512×512 (manifest) |
 
 ## 6. Building graphics with code (when no design tool is used)
-- Build each graphic as an HTML page (exact pixel size, real web fonts, CSS tokens) or SVG; render to PNG with a headless browser (e.g. Playwright `page.screenshot`) at 2× for crispness.
+- Build each graphic as an HTML page (exact pixel size, real web fonts, CSS tokens) or SVG, then render it: `node ${CLAUDE_SKILL_DIR}/scripts/capture.mjs render post.html post.png --size 1080x1350` (2× by default for crispness). Open the PNG to check it before delivering.
+- Optimize: SVGO for SVG, sharp for AVIF/WebP. Full tool list with licenses (SVG, open-weight image models such as FLUX.1 [schnell] / Qwen-Image under Apache-2.0): `toolchain/asset-generation.md`.
 - For OG images in Next.js, use the `opengraph-image` route convention (`next/og` ImageResponse).
 - Export: PNG for graphics with text, JPG/WebP/AVIF for photos, SVG for icons/illustrations.
 
