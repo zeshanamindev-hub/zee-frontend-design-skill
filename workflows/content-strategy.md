@@ -4,6 +4,7 @@ Turns research into **site content that engages visitors and meets search-engine
 
 ## Step 1: Gather inputs
 - Competitor analysis: messaging, **customer language**, objections, **content gaps**, **keyword gaps**, E-E-A-T gaps.
+- **Facts register:** start `.design/content/facts.md` (template `workflows/templates/facts.md`): every claim that will appear on the site, with its source URL/document and date. While harvesting the client's existing pages, **flag contradictions on the client's own site** (e.g. "20+ years" on home vs "since 2012" on about; different prices on two pages) and ask the client which is true before writing copy.
 - **Business facts from the user** (ask for anything missing, and never invent it): years in business, numbers (customers, projects, results), certifications/awards, team and credentials, guarantees, pricing, locations, real testimonials and case studies, photos, founder story.
 - Keyword research: Semrush MCP if connected; otherwise WebSearch signals (autocomplete, People Also Ask, related searches, competitor titles/H2s, forum questions).
 

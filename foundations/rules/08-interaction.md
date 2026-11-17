@@ -1,0 +1,15 @@
+# 08 · Interaction design rules (I1–I10)
+Patterns and code: `../../mediums/web-ui/micro-interactions.md`; mobile gestures: `../../mediums/mobile-app/mobile-app.md`.
+
+| ID | Rule | How to apply (numbers) | Honest caveat |
+|---|---|---|---|
+| **I1** | **One primary action** | Each view/section has exactly **one** filled (accent) button; secondary actions are outline/ghost/text. Dialogs: primary on the trailing side (platform convention). | Comparison views (pricing) may have one primary per column. That's still one per decision. |
+| **I2** | **Affordance & signifier** | Signifiers tell people *where* to act: cursor change, hover/pressed states, drag handles, chevrons on expandable rows, underlines on links, "inset" inputs. | Hover doesn't exist on touch; never put the only signifier in hover. |
+| **I3** | **Feedback loop** | Action → immediate acknowledgement (< 100 ms) → progress (H6 ladder) → result (success/error) → next step. Micro-interaction anatomy: trigger · rules · feedback · loops & modes (Saffer). | Every feedback animation ≤ 200–300 ms for UI; longer slows experts. |
+| **I4** | **Direct manipulation** | Let users act on the object itself: drag to reorder, inline edit, resize handles, swipe to dismiss. Always provide a non-drag alternative (WCAG 2.5.7 Dragging Movements). | Direct manipulation is hard to discover; add signifiers and an alternative. |
+| **I5** | **Undo / redo** | Prefer **undo** over confirmation for reversible actions ("Message archived · Undo", 5–10 s toast); keyboard Ctrl/Cmd+Z in editors. | Irreversible actions (payments, deletes without trash) still need confirmation. |
+| **I6** | **Default effect** | Most people keep defaults: pre-select the option that's best **for the user** (most common plan, standard shipping, privacy-protective settings). | Pre-ticked consent boxes are illegal under GDPR; defaults must be honest. |
+| **I7** | **Touch target size** | WCAG 2.2 AA minimum **24×24 CSS px** (2.5.8; spacing exception); recommended **44×44** (Apple HIG pt, WCAG AAA 2.5.5) / **48×48 dp** (Material). Gap ≥ 8px between adjacent targets. | Visual size can be smaller than the hit area (padding counts). |
+| **I8** | **Three-click rule** | Use as a prompt to check navigation depth only. Better test: can users tell at each step that they're getting closer? (information scent) | **Debunked as a rule**: studies (e.g. Porter, UIE 2003) found no drop in satisfaction or success with more clicks when each click is clear. |
+| **I9** | **Error recovery** | Errors say what happened, why, and how to fix it, next to the field, in plain language; keep user input; offer the fix ("Did you mean gmail.com?"); helpful 404 with search + popular links. | Generic "Something went wrong" is the most common failure. Log a code for support. |
+| **I10** | **State visibility** | Every interactive component designs all states: default · hover · focus-visible · active/pressed · selected · disabled (with reason) · loading · error · success · empty. | Missing focus and disabled states are the most common gaps; `interaction-qa.mjs` flags missing focus. |

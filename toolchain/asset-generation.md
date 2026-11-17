@@ -49,6 +49,10 @@ ChatGPT Images / GPT Image (all-round, accurate text) · Google Nano Banana Pro 
 | FLUX.1/FLUX.2 [dev], FLUX.2 [klein] 9B | Non-commercial | ❌ without a BFL license |
 | Ideogram 4 open weights | Non-commercial model agreement | ❌ |
 **Runners:** ComfyUI (GPL-3.0, node workflows) · Hugging Face Diffusers (Apache-2.0, Python) · InvokeAI.
+### Node-based AI platforms (chain models + edits on one canvas)
+A node canvas connects generate → edit → upscale → extend → animate steps so results are **reproducible and consistent** (same references, seeds and prompts across a whole campaign). Options: **ComfyUI** (open source, GPL-3.0, local GPU or cloud) · **Figma Weave** (formerly Weavy; acquired by Figma ~Oct 2025; hosted; chains models such as Veo, Flux, Ideogram, Nano Banana, Seedream/Seedance with editing tools, branch/remix/refine). If a Figma MCP server with Weave tools is connected, it can be driven from Claude Code. Similar hosted canvases exist (e.g. FLORA, Runway's node tool). [Sources: techcrunch.com, techradar.com on the Weavy acquisition; Figma's own node-based-AI article couldn't be read by the fetch tool]
+### Outpainting / generative expand (extend an image beyond its frame)
+Use it to adapt **real** photos to new aspect ratios (16:9 hero → 9:16 story, 21:9 banner) without cropping the subject: Photoshop Generative Expand / Firefly (commercially safe training data), Canva/Figma AI features, or open models in ComfyUI (inpaint/outpaint workflows with a commercially licensed checkpoint). Rules: extend backgrounds only (never invent product details or people), match grain and light, and check the edge seams at 100%.
 **Rule:** licenses attach to **each checkpoint**, not the model family. Verify on the model card before commercial use.
 
 ## 4. Video
@@ -95,7 +99,8 @@ Spline (web 3D, proprietary) · Blender (GPL) · three.js (MIT) / React Three Fi
 1. **Plan** (concept → storyboard / layout) using `foundations/` and the medium file.
 2. **Tokens:** reuse the project's color/type tokens so assets match the site.
 3. **Build:** SVG/HTML for graphics, Motion Canvas or Remotion composition for video, Lottie/CSS for UI motion.
-4. **Render:** `capture.mjs render` (PNG) · Motion Canvas/Remotion render (MP4) · `make-gif.sh` (GIF + web MP4).
+4. **Render:** `capture.mjs render` (PNG) · `render-video.mjs` (HTML timeline → MP4, bundled) · Motion Canvas/Remotion render (MP4) · `make-gif.sh` (GIF + web MP4; `--max-mb` size budget).
+   Colours from real assets: `extract-colors.py`; palettes: `palette.py` (`--mono` for black-and-white brands).
 5. **Optimize:** SVGO, sharp (AVIF/WebP), FFmpeg (CRF, size).
 6. **Verify:** open/inspect the output (Read the PNG, check the video frames), check sizes and contrast, then run the anti-slop check.
 7. **Deliver:** files + source (so the user can edit) + license notes.

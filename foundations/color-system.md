@@ -145,3 +145,17 @@ Generate them with `palette.py`. Rule: harmonies feed **illustrations, charts an
 - **Sequential:** one hue, light → dark (more = darker).
 - **Diverging:** two hues meeting at a neutral midpoint (e.g. negative ↔ positive).
 - Highlight one series with the accent; grey out the rest.
+
+## 7. Colour-scheme decision procedure (use all ten colour rules, not just 60/30/10)
+Run this in Step 4 (concept) for every new site or revamp. Output a short **colour rationale** in the concept: one line per step.
+1. **Start from what's real (B1).** Client brand guidelines win. Otherwise extract from real assets: `python3 scripts/extract-colors.py logo.png photos/*.jpg --ignore-bg`. If it reports MONOCHROME → `palette.py <hex> --mono` and consider Direction D13.
+2. **Read the category (C3, U3).** From competitor captures, note the colours every competitor uses (`competitor-analysis.md`). Decide on purpose: *match* the category where trust conventions matter (health, finance: calm, high contrast) or *break* it where differentiation matters (agencies, consumer brands). Use colour psychology as a tie-breaker only (C3 [Evidence: weak/mixed]).
+3. **Choose the harmony (C2, C4–C8)** for the *brand system*: complementary for one punchy CTA on a calm base · analogous for natural/calm brands · split-complementary for energy without clash · triadic for playful/kids (accent restraint) · monochromatic for luxury, editorial, B&W. Build it with `python3 scripts/palette.py <hex>` (OKLCH hue rotation).
+4. **Set temperature (C10).** Warm accent on cool surfaces, or the reverse, so action separates from surface; tint neutrals 0.005–0.02 chroma toward the brand.
+5. **Assign roles with 60/30/10 (C1)** *per viewport*: 60 surface · 30 secondary surfaces/type/bands · 10 accent (primary CTA, focus, key highlight). Decide which hue may appear in illustrations/data only.
+6. **Reserve semantics (C11).** Error/success/warning/info hues that don't collide with the brand accent.
+7. **Verify contrast (C9, C12).** Every text/background and component/background pair with `scripts/contrast.py` (text 4.5:1, large 3:1, UI 3:1); check hover, disabled, placeholder, focus ring, text over images (scrim); CVD check for charts and status.
+8. **Test in context.** Render the palette on the actual hero + one dense section, light and dark, with real photos (`capture.mjs render`). Palettes that look good as swatches often fail on real imagery.
+9. **Write tokens** (primitive → semantic) and the rationale; offer **2 palette options** when the brand isn't fixed: one that matches the category, one that breaks it, with your recommendation and why.
+
+Niche starting points: `niche-design-profiles.md`. Figma's library of 100 named combinations (grouped monochromatic, romantic, playful, vibrant, neutral, tranquil, seasonal) maps moods to industries, e.g. charcoal/cool-grey/ivory for portfolios and retail, pewter/taupe for finance, terracotta/beige/sand for travel and wellness, lime/yellow for fitness. Use it as a mood vocabulary, then rebuild in OKLCH and verify contrast. [Source: figma.com/resource-library/color-combinations; that page shows palettes as images, so hexes must be sampled or rebuilt]

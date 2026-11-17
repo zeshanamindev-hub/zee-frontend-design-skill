@@ -14,6 +14,28 @@ This file is a **dated snapshot (Nov 2026)**. Before designing any page, run Tra
 - **Expressive systems:** Apple Liquid Glass and Google Material 3 Expressive (2025) continue to influence UI.
 - **Conversion-focused design**: designers are judged on outcomes, not just visuals.
 
+### 2026–2027 trend synthesis (6 articles read Nov 18 2026; cautions included)
+Sources: uxdesign.cc "most popular experience design trends of 2026" (J. Smiley, Jan 26 2026) · smtech24.com 12 trends 2026 (upd. Nov 17 2026) · sprakdesign.com trends 2026 (Sep 10 2026) · pixelean.com trends heading into 2027 · deftsoft.com trends 2027 · dribbble.com trendsetter agencies (Jun 2026). Not readable by the fetch tool: medium.com design-bootcamp "10 UI/UX trends for 2027", behance.net "Design Trends 2026".
+| Trend | Use when | Caution (from the sources) |
+|---|---|---|
+| **Intent-based / AI-adaptive & generative UI** | complex tools, repeat-use products with behavioural data | low-traffic and brochure sites rarely benefit; make the AI's reasoning visible, plan for wrong guesses, allow override |
+| **Conversational + multimodal** (chat, voice, image input) | open-ended tasks, search, support | always a fallback mode; keep checkout and transactions predictable; design streaming, errors and human hand-off |
+| **Design for AI agents / "machine experience"** | every site | semantic HTML, clear labels, structured data so assistants and agents read the page correctly (also SEO/GEO); the author's claims about AI misreading content deserve verification |
+| **Accessibility as the legal baseline** | everywhere | EU: EAA enforceable since Jun 2025; EN 301 549 V4.1.1 (Sep 2026) references WCAG 2.2 AA |
+| **Glass / Liquid Glass revival** | navigation/controls over rich imagery | readability suffers over busy backgrounds; test real backgrounds in light and dark; offer more-opaque options |
+| **Expressive UI / bold type & vibrant colour** | brand pages, one key action per screen | keep nav and forms standard; contrast-check both themes |
+| **Minimalism with depth** (layering, spacing, type) | product UI, SaaS | don't hide functions users need |
+| **Purposeful micro-interactions** | feedback, status, validation | heavy animation on dense dashboards slows perceived performance |
+| **Native web motion** (View Transitions, scroll-driven animations) | page/state transitions | reduced-motion fallbacks; progressive enhancement |
+| **Human, imperfect look** (texture, collage, hand-drawn) | storytelling, brand pages | not for core product UI |
+| **Nostalgia / retrofuturism** | brands with a real emotional reason | not as a costume; one era only |
+| **3D, AR & spatial** | retail try-on, real estate, training, hardware | most SaaS/fintech/content gain little; performance budget; static fallback |
+| **Personalised, role-based dashboards** | B2B, analytics, enterprise | needs real role research |
+| **Gamification** | learning, habits, fitness | Pixelean lists "gamified serious tasks" to skip; no dark patterns |
+| **Trust-focused, ethical UX** (transparent pricing, consent, cancellation, AI use) | everywhere | Figma's shopper survey: people notice being rushed, and it costs the sale |
+| **Skip list for 2027 (Pixelean)** | n/a | neumorphism · autoplay carousels · voice-first sites · heavy 3D heroes · gamified serious tasks |
+**Rule from the sources themselves:** trends are tools, not requirements; adopt 2–3 that solve real user problems [sprakdesign.com]. Always pair a trend with the rule it serves (rules library IDs).
+
 ## 1. Current trend toolbox [Source: 3 trend carousels, 2026–2027 predictions]
 
 | Trend | What it is | Use when | Avoid when | Build notes [Expert] |

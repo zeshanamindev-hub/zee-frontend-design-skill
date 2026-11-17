@@ -9,20 +9,29 @@
 | **G2: Section plan** | Before building each section | Is the pattern chosen for this content, or is it the default? Is there real content and proof? |
 | **G3: Final** | Before handover | Run the detector below, the logo-swap test and the remove test on the finished page |
 
-### Generic-design detector (score the design; 1 point per "yes")
-1. Could the logo be swapped with a competitor's and the page still work unchanged?
+### Generic-design detector (score the design; 1 point per "yes"; 14 checks)
+1. Could the logo be swapped with a competitor's and the page still work unchanged? (L20 brand test)
 2. Is the hero the default formula (pill badge → centered headline → two buttons → floating mockup/blob)?
-3. Does any section use 3+ identical icon cards?
+3. Does any section use 3+ identical **icon cards** (icon + title + 2 lines in a bordered/shadowed box)?
 4. Is the palette a purple/blue/pink gradient or 4+ competing hues, with no clear 60/30/10?
 5. Is the font the default (Inter/Roboto/system) with no deliberate reason, or are 3+ families mixed?
 6. Are radius, shadow and spacing identical everywhere (`rounded-2xl shadow-lg` on all)?
 7. Is every section centered with the same structure and rhythm?
 8. Are there decorative blobs, glows, glass panels or 3D shapes that would not be missed?
 9. Does the copy include filler ("Unlock", "Seamless", "Elevate", "Revolutionize") or invented stats/testimonials?
-10. Does motion appear on every scroll or hover without communicating anything?
+10. Is there motion **without a written reason** in the motion ledger (`../workflows/templates/motion-ledger.md`)?
 11. Are stock photos or illustrations generic (handshakes, laptops, abstract people) instead of real product, people or work?
 12. Is there no signature move, nothing a visitor would remember tomorrow?
-**Score 0–1:** pass · **2–3:** fix the flagged items before handover · **4+:** generic; go back to the concept and direction (art-directions.md). Report the score in the handover.
+13. **Box layout:** are all sections the same width (no full-bleed, no breakout, no one-side bleed) or is there more than one card grid? (`../mediums/web-ui/layout-library.md` §0)
+14. **No hi-fi section:** is there no section built around a high-fidelity visual (product theatre, art-directed photo, data-viz, illustration scene, video loop…)? (`../mediums/web-ui/hifi-visuals.md`)
+**Score 0–1:** pass · **2–3:** fix the flagged items before handover · **4+:** generic; go back to the concept and direction (art-directions.md). Report the score **with the item numbers** in the handover.
+
+### Scoring clarifications (from the v0.3 field run)
+- **Proof strip ≠ icon cards.** A row of 3–4 *real, sourced numbers* (P-04) with no icons and no boxes doesn't score on #3. It scores only if the items are generic claims in identical boxes.
+- **Card test decides #3 and #13.** Remove border, shadow, background and radius; if nothing is lost, the boxes were decoration (L19). Product, post, plan and case-study cards are legitimate (≤ 1 grid per page).
+- **Motion (#10) is scored per motion, but counts once.** Each animation needs a ledger row with a purpose (orientation, feedback, hierarchy, continuity, one peak-moment delight). The *weakest* unexplained motion is enough to score the point. Example: in the v0.3 run, a slow "collage drift" had no reason, so the page scored 1/12, not 0. Fix: give it a job (reveal the next chapter) or remove it.
+- **Partial credit doesn't exist.** If you're unsure, it scores, and you note why in the handover. Honest scores beat flattering ones.
+- **Litmus checks** (answer yes to all before handover) [Source: DAE-UX steering]: brand unmistakable in the first viewport? one strong visual anchor per viewport? scannable by headlines alone? one job per section? every card necessary? motion improves hierarchy? would it still feel premium with all shadows removed?
 
 ### Banned defaults by category (unless a documented reason says otherwise)
 | Category | Banned default | Do instead |

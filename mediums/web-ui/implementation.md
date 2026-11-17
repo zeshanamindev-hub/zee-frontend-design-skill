@@ -123,3 +123,23 @@ At handover, **offer** to save a `DESIGN.md` in the project root (create it only
 - Rules: one primary CTA per view; radius control 8px / container 16px; motion = smooth
 - Placeholders to replace: <…>
 ```
+
+## 6. Gotchas list (bugs that screenshots don't show; check before handover)
+| # | Gotcha | Symptom | Fix | Evidence |
+|---|---|---|---|---|
+| 1 | **Video seeking needs HTTP Range support** | `<video>` plays but scrubbing/seek jumps back to 0; loops stutter | Serve with a range-capable server: `npx http-server`, `next dev/start`, a CDN or host. **Python `http.server` returns 200 without `Accept-Ranges`**, so seeking fails | Tested Nov 2026: Python → `HTTP/1.0 200`, seek 6 s → 0 s; `npx http-server` → `206 Partial Content`, seek works. `scripts/interaction-qa.mjs` checks this |
+| 2 | **Lazy images in full-page screenshots** | black/blank areas in captures; scroll-reveal sections invisible | `capture.mjs` scrolls first and waits for images by default with `--full`/`--sections`; in your own scripts, scroll before capturing | Tested: reveal section blank without scroll, rendered with scroll |
+| 3 | **`100vh` on mobile** | hero taller than the screen; content hidden under browser UI | `100svh` (small viewport) for heroes, `100dvh` only for full-screen app shells; viewport budget `calc(100svh - var(--header-h))` | CSS viewport units spec |
+| 4 | **Grid `1fr` overflow** | 1px or more horizontal scroll on mobile | `minmax(0,1fr)`; long words: `overflow-wrap: anywhere` | Found in v0.3 test page; `capture.mjs` now reports any overflow > 0 px |
+| 5 | **`position: sticky` inside `overflow: hidden/auto`** | sticky element doesn't stick | Move `overflow` to a different wrapper or use `overflow: clip` (doesn't create a scroll container) | CSS overflow spec |
+| 6 | **`transform`/`filter` on an ancestor** | `position: fixed` child behaves like absolute; z-index stacking surprises | Don't animate transforms on ancestors of fixed elements; portal modals to `body` | CSS containing-block rules |
+| 7 | **z-index wars** | modals under headers | Define a z-index scale token (`--z-header: 50; --z-overlay: 100; --z-modal: 110; --z-toast: 120`); use `isolation: isolate` on sections | Expert |
+| 8 | **iOS input zoom** | page zooms when focusing a field | Inputs `font-size: 16px` minimum | Long-standing iOS Safari behaviour |
+| 9 | **`backdrop-filter` cost** | janky scroll on low-end phones | Limit to small fixed elements (nav), not large scrolling panels; provide an opaque fallback via `@supports not (backdrop-filter: blur(1px))` | Expert / perf profiling |
+| 10 | **Next.js 16 image qualities** | `quality={90}` ignored | Add the values to `images.qualities` in `next.config` (default `[75]`) | `stacks/nextjs.md` |
+| 11 | **Next.js 16 smooth scroll** | `scroll-behavior: smooth` animates every route change | Add `data-scroll-behavior="smooth"` on `<html>` to get the old behaviour | `stacks/nextjs.md` |
+| 12 | **Focus hidden under sticky header** | keyboard focus scrolls behind the header (fails WCAG 2.4.11) | `html { scroll-padding-top: calc(var(--header-h) + 16px) }` | WCAG 2.2 |
+| 13 | **Auto-playing motion > 5 s** | fails WCAG 2.2.2 | Visible pause control for loops/carousels/marquees; `prefers-reduced-motion` → stop | WCAG 2.2 |
+| 14 | **Fonts swapping late** | layout shift (CLS) | `next/font` or `font-display: swap` + `size-adjust` fallback metrics; preload only the 1–2 critical files | Core Web Vitals guidance |
+| 15 | **Hover-only UI** | menus/actions unreachable on touch | Every hover reveal also opens on tap/focus | WCAG 2.1.1, 1.4.13 |
+Run `node scripts/interaction-qa.mjs <url>` and `node scripts/capture.mjs shots <url> --full --sections`; both catch several of these automatically.

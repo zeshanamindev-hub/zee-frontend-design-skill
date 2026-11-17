@@ -20,6 +20,17 @@ Use with the `AskUserQuestion` tool: max 4 questions per call, 2–4 options per
 Options: "Yes, I'll share links/files" · "No, find inspiration for me (Recommended if none)" · "Both"
 **Then process every item:** open each link with a browser tool (screenshots at 375 + 1440), read Figma via Figma MCP if connected, view images with Read. Write one line per reference: **what works · the principle behind it · how we'll adapt it (never copy)**. If the user shares nothing, run Track 3 of the research pipeline yourself.
 
+## Always ask second: your own assets (upload step; the skill pauses here)
+First **harvest** what already exists (project folders, live site, social, Figma; `workflows/asset-intake.md` Step 1). Then ask **once**, listing exactly what's missing, and **wait** for the answer:
+**"Can you upload your own assets?"** Logo (SVG) · brand guidelines · original photos (team, product, place, work) · product UI screenshots/demo login · video clips · testimonials/reviews/case-study numbers you may publish · licensed font files.
+How: drag files into the chat, or copy them into `.design/assets/inbox/` and reply "done".
+Options: "Uploading now, wait for me (Recommended)" · "They're already in the project folder" · "Skip: design around missing assets + give me a shot list" · "Use licensed AI imagery where needed"
+After the reply, process the uploads (inventory, `extract-colors.py`, optimisation) before concept work.
+
+## Round 0 — What kind of job is this? (decides which files load)
+New site/page · **Redesign / revamp** of an existing site (→ `workflows/redesign-revamp.md`: which pages, keep list, analytics access) · **Dashboard / admin** (→ `mediums/dashboard/dashboard.md` discovery) · **Mobile app** (→ `mediums/mobile-app/mobile-app.md` discovery) · **Prototype to test an idea** (→ `workflows/prototyping.md`: what question must it answer?) · Motion / video / graphics (→ the medium file).
+For redesigns of **many sites**, also ask where the design ledger lives (`workflows/templates/design-ledger.md`) so consecutive sites don't share the same look.
+
 ## Round 1 — Purpose (always, unless already clear)
 
 **1. What are we designing?**

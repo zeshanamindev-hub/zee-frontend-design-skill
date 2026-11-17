@@ -1,5 +1,7 @@
 # Website layouts by business type
 
+> v0.4: this file says **which sections** a business needs. **How** to lay each out (layout IDs, widths, hi-fi visuals, the anti-box contract) is in `layout-library.md` and `hifi-visuals.md`; niche colour/type/video choices are in `../../foundations/niche-design-profiles.md`.
+
 Blueprints to **start** a page plan. Always adapt them with research (competitors, objections, keywords); never ship a blueprint unchanged. Section names map to patterns in `composition-patterns.md`; CRO levers come from `foundations/cro.md`; schema types from `foundations/seo.md`. [Expert]
 
 **How to read each entry:** Goal → Sitemap → Homepage section order → Key page notes → Trust must-haves → Suggested art directions → Schema.

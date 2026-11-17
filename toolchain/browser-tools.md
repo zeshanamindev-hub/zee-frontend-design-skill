@@ -49,7 +49,16 @@ Requirements: Google Chrome or Microsoft Edge (other Chromium browsers like Brav
    node ${CLAUDE_SKILL_DIR}/scripts/capture.mjs shots http://localhost:3000 --widths 375,768,1280,1536
    node ${CLAUDE_SKILL_DIR}/scripts/capture.mjs render og.html public/og.png --size 1200x630
    ```
-   `shots` prints a **⚠ horizontal overflow** warning for any width where content is wider than the viewport.
+   `shots` (v0.4): scrolls the page first (lazy images load, scroll reveals run), forces lazy images eager, waits for images and fonts, then captures. Per width it reports **horizontal overflow (any value > 0 px)**, console errors, page errors, failed requests (4xx/5xx/network) and broken images, and writes `report.json` per target.
+   More options: several URLs at once (`shots https://a.com https://b.com`) or `--list urls.txt` (one URL per line, `#` comments) → one sub-folder per site · `--sections [selector]` → one PNG per section (default selector covers `main > section`, `body > section`, `[data-section]`, header/footer) for section-by-section competitor analysis · `--no-scroll` to disable the scroll pass · `--dark` for `prefers-color-scheme: dark`.
+   Binary: `--channel chrome` or `CHROME_PATH=/path/to/chrome`.
+
+### D. interaction-qa.mjs (keyboard & interaction bugs screenshots can't show)
+```bash
+node ${CLAUDE_SKILL_DIR}/scripts/interaction-qa.mjs http://localhost:3000 --width 1280 --json .design/qa/home.json --channel chrome
+```
+Checks: console/page errors and failed requests · accessible names on buttons/links · `alt` on images · broken images · Tab walk (visible focus indicator per stop, focus traps) · tabs (`role=tablist`: ArrowRight moves/selects) · sliders (`role=slider`, `input[type=range]`: arrow keys change the value) · dialogs (triggers with `aria-haspopup="dialog"`/`aria-controls`: opens, moves focus inside, Escape closes, focus returns) · **video seeking + HTTP Range support** (fails when the server returns 200 instead of 206) · animations still running under `prefers-reduced-motion` · horizontal overflow. Exits 1 if anything FAILs, so it can run in CI. Exit 2 = the page itself didn't load.
+Tested Nov 2026 on a deliberately broken page: it caught 12 issues (missing names/alt, no focus style, broken slider, dialog without Escape/focus, failed seek on a non-range server) and passed the correct widgets.
 
 ## 3. How the skill uses browsers in each workflow
 | Workflow step | Browser action |

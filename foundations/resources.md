@@ -70,3 +70,21 @@ See the medium modules for the full, dated tool lists:
 - `mediums/motion-graphics/motion-graphics.md`: After Effects, Rive, Lottie Creator, Jitter, Cavalry, Spline, GIF tooling
 - `mediums/video/video.md`: AI video generators, editors, code-driven video (Remotion), screen-recording tools
 - `mediums/graphics/graphics.md`: social/marketing graphics, AI image generators, sizes
+
+## Rules, laws & principles references (v0.4)
+Read Nov 2026 and distilled into `foundations/rules/` (cite rule IDs, not the article):
+- lawsofux.com (30 laws) · uxmagic.ai/blog/laws-of-ux · myuxacademy.com/blog/ux-design-laws-principles (Jun 2026)
+- ux.detroit3d.com/foundations (8pt/4pt grid, colour priority) · interaction-design.org/literature/topics/design-guidelines (principles → guidelines → rules)
+- github.com/DAE-UX/design-system-scaffold (steering files: heuristic IDs, task router, violation workflow, card/brand/image tests)
+- figma.com/resource-library: ui-design-principles · typography-in-design · minimalist-fonts · color-combinations (100 named combos by mood/industry)
+- uxdesign.cc "58 rules for stunning and effective UI design" (T. Bakusevych, Jan 2024) · learnui.design "7 rules for creating gorgeous UI" (E. Kennedy, 2024 update)
+- shopify.com/blog/ui-design-principles (2023, e-commerce) · devsquad.com/blog/user-interface-layouts (30 app layout types)
+- uistyleguide.com (67 named UI styles with palettes, CSS notes and agent prompts: style vocabulary)
+
+## Inspiration by agency (2026 lists; study their published work, never copy)
+- **Dribbble trendsetter agencies (Jun 2026):** branding: STUDIO ANDRZ, Wegrow, Vitality Studio, Peterdraw, Habito · web: Composite Global (AI/SaaS), Nexila (fintech/AI), Nebs Creative (fintech/SaaS dashboards), Diverently (motion-driven), ClefDev · UI/UX: Red Lions (design systems), Orix Creative, Wimble (AI e-commerce/try-on), Agensip (logistics/enterprise), Pixelean (wellness/health) · product: Microdose (health apps), 0xHearts (gaming/crypto), Pixacle (iOS food & hospitality), KoldaTech (EdTech), Pixel Pioneer (crypto wallets) · web & app: Pixcut, Drexler (art-directed web), Moonbite (premium SaaS), Pixel One (onboarding).
+- **Established product-design studios** (from andersenlab.com Oct 2026 and boldare.com Oct 2026 lists; both lists are written by agencies that rank themselves first): MetaLab, Clay, Ramotion, UX studio, Netguru, Eleken, Fireart Studio, Momentum Design Lab, Human Creative, League Design Agency.
+Use: when the niche matches (e.g. fintech dashboard → Nebs Creative, Nexila; health app → Microdose, Pixelean), open their Dribbble/portfolio work during Track 3 and note the *principle* behind what works.
+
+## Couldn't be read by the fetch tool (Nov 2026)
+figma.com/resource-library pages on AI image tools, outpainting, AI animation, node-based AI, AI video examples, AI video prompts, tweening, whiteboard animation, cinemagraphs, animated videos, and the bad-digital-experiences survey (only its headline figures were visible in search results); medium.com "10 UI/UX design trends for 2027"; behance.net "Design Trends 2026". Their topics are covered from other primary sources (Google's Veo guide, official tool pages, standard production technique) and marked as such. Paste their text into the chat if you want them added verbatim.

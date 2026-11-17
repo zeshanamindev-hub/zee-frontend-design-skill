@@ -1,0 +1,15 @@
+# 10 · Conversion & landing-page rules (K1–K10)
+CRO research method, dark-pattern list and testing: `../cro.md`. Copy formulas: `../content-copywriting.md`.
+
+| ID | Rule | How to apply | Honest caveat |
+|---|---|---|---|
+| **K1** | **AIDA** (Attention, Interest, Desire, Action) | Map sections: hero = attention (one sharp claim + visual anchor) → problem/benefits = interest → proof, demo, outcomes = desire → offer + CTA = action. | A copy *sequence*, not a layout template; don't produce the same 4 blocks for every niche. |
+| **K2** | **PAS** (Problem, Agitate, Solution) | Name the problem in the user's words (from reviews/support), show its cost, then present the product as the resolution. | Agitation can become fear-mongering; keep it truthful and proportionate (especially health/finance). |
+| **K3** | **One clear CTA** | One primary action per page goal; repeat the *same* CTA at natural decision points (hero, after proof, end). Secondary actions de-emphasised (I1). | Some pages have two audiences (buyer/seller), so split them clearly. |
+| **K4** | **Message match** | Ad/email/search snippet promise = page headline (same words, same offer, same visual). | Requires knowing traffic sources; ask for them in discovery. |
+| **K5** | **Attention ratio** | Links on the page : conversion goals. Dedicated landing pages aim for ~1:1 (remove main nav, minimal footer). | Home pages and SEO pages need navigation; the 1:1 target is for campaign pages. |
+| **K6** | **Social proof** | Real, attributable proof near the claim it supports: named testimonials with photo/role, review scores with count and source, client logos (with permission), case-study numbers. | **Never fabricate** testimonials, numbers, logos or "X people viewing". Log every claim in `facts.md`. |
+| **K7** | **Hick's law in conversion** | Cut choices at decision points: 3 plans, 1 form, ≤ 5 fields for lead gen, guest checkout. (See U2.) | Removing needed info (shipping cost, fees) to "reduce choice" backfires. |
+| **K8** | **Above-the-fold principle** | First viewport must answer: what is it, who is it for, why it's better, what to do next. Viewport budget `calc(100svh - header-height)`. | People do scroll; "everything above the fold" causes cramming. Put the *promise* above the fold, not every detail. |
+| **K9** | **Trust signals** | Security badges at payment, clear returns/refund policy, real address/contact, transparent pricing, recognisable payment methods, error-free copy. The Figma survey found spelling or grammar errors can lose a sale. | Fake badges (unearned "secure" seals) damage trust and may be illegal. |
+| **K10** | **Friction reduction** | Fewer fields, autofill (`autocomplete`), address lookup, wallet payments, guest checkout, inline validation, saved progress. In Figma's survey of 1,044 US online shoppers, 84% said they abandon carts over bad checkout design. [Source: figma.com/resource-library/bad-digital-experiences-survey (headline figure only; full page not reachable)] | Some friction is good (confirming irreversible actions, preventing fraud). |

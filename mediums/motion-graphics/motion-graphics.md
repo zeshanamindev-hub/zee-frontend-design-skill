@@ -28,6 +28,13 @@ UI-specific:
 - **Reduced motion** version for anything on the web; no flashing > 3 times/sec (WCAG 2.3.1).
 - Kinetic type: legibility first. Animate in by word or line, hold, then exit; avoid spinning or warping body text.
 
+## 3b. Tweening, keyframes and easing (how in-betweens are made)
+- **Keyframes** define states at moments in time (position, scale, opacity, colour, path); **tweening** generates the frames in between. Types: **motion tween** (position/scale/rotation), **property tween** (opacity, colour, blur), **shape/path tween** (morphing one vector into another; needs compatible point counts: use Flubber or GSAP MorphSVG, or design both shapes with the same points), **classic/frame-by-frame** for organic hand-drawn moments.
+- **Easing decides the feel:** `ease-out` (fast → slow) for things entering; `ease-in` (slow → fast) for things leaving; `ease-in-out` for moves within the screen; **linear** only for continuous loops (marquees, spinners) and scroll-linked motion; **spring** physics for direct manipulation and playful brands. Starter curves: out-expo `cubic-bezier(0.16,1,0.3,1)`, in-out-cubic `cubic-bezier(0.65,0,0.35,1)`, out-back `cubic-bezier(0.34,1.56,0.64,1)` (overshoot, use sparingly).
+- **Code tweening:** CSS transitions/`@keyframes`, the Web Animations API (`element.animate()`), Motion (`motion` package), GSAP timelines; all are seekable, so `scripts/render-video.mjs` can render them to video (WAAPI/CSS automatically; GSAP via `window.__render = t => gsap.globalTimeline.seek(t)`).
+- **Deterministic timelines** (for video): write motion as a pure function of time (`window.__render(t)`, see `scripts/templates/video-timeline.html`), so every frame renders identically and you can scrub, preview and re-render.
+- **Common mistakes:** everything on the same easing and duration (robotic); linear easing on UI moves (mechanical); tweening layout properties (`top`, `width`) instead of `transform`/`opacity` (jank); morphing shapes with mismatched points (blobby artefacts).
+
 ## 4. Tools (Nov 2026 snapshot)
 | Tool | Best for | Output | Notes |
 |---|---|---|---|
@@ -69,6 +76,7 @@ UI-specific:
 3. Convert: `bash ${CLAUDE_SKILL_DIR}/scripts/make-gif.sh input.mp4 output.gif 800 12` (two-pass ffmpeg palette; also writes a much smaller `.web.mp4`, around 10× smaller in testing).
 4. Check size: aim for under ~2–3 MB for email/docs; reduce width, fps or duration if larger. `gifsicle -O3 --lossy=80` can squeeze further if installed.
 5. Add alt text where the GIF is embedded; avoid flashing.
+- **Size budget:** `bash scripts/make-gif.sh in.mp4 out.gif 800 12 0 6 --max-mb 3` steps down fps → colours → width until the GIF fits (exit 3 if it can't; then shorten/crop or ship the MP4). Tested: 2.47 MB → 1.16 MB in 3 steps.
 
 ## 7. Motion-graphics slop markers → alternatives
 | Slop | Instead |

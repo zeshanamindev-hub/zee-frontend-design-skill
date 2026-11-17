@@ -1,0 +1,164 @@
+<!doctype html>
+<!--
+  video-timeline.html: deterministic HTML timeline for render-video.mjs
+  Scenes: 1) masked headline reveal  2) brand-shaped wipe  3) camera move over a product UI
+          4) cursor path + click ripple  5) end card.  All motion is a pure function of t (seconds).
+  Preview: open in a browser (plays in real time; press Space to pause, ←/→ to scrub).
+  Render:  node render-video.mjs templates/video-timeline.html out/promo.mp4 --size 1920x1080 --fps 30
+  Size: authored for 16:9 at 1920×1080. For 9:16 (Reels/Shorts/stories, app previews) make a copy and re-lay out
+        the stage at 1080×1920 (render-video.mjs warns if the timeline is bigger than the frame).
+  Customize: edit the CSS variables (brand), the copy, the UI mock, and the SCENES timings.
+  Replace the mock UI with a real screenshot <img> of the product when you have one: real beats fake.
+-->
+<html lang="en"><head><meta charset="utf-8"><title>Video timeline</title>
+<style>
+  :root{
+    --bg:#0E0F12; --ink:#F4F1EA; --muted:#9A9AA3; --accent:#FF5A1F; --surface:#17191F; --line:#2A2D36;
+    --font-display: "Inter Tight", "Inter", system-ui, sans-serif; --font-body: "Inter", system-ui, sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{width:1920px;height:1080px;overflow:hidden;background:var(--bg);color:var(--ink);font-family:var(--font-body)}
+  #stage{position:relative;width:1920px;height:1080px;overflow:hidden}
+  .scene{position:absolute;inset:0}
+  /* 1. headline */
+  #s1{display:grid;place-content:center;text-align:left;padding:0 220px}
+  .line{overflow:hidden;line-height:1.02}
+  .line span{display:block;font:800 150px/1.02 var(--font-display);letter-spacing:-0.035em;will-change:transform}
+  .line span em{font-style:normal;color:var(--accent)}
+  .kicker{font:600 26px/1 var(--font-body);letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin-bottom:36px}
+  /* 2. brand-shaped wipe: a slanted brand bar that sweeps across and reveals scene 3 */
+  #wipe{background:var(--accent);will-change:clip-path}
+  /* 3. camera move over UI */
+  #s3{background:#F6F5F1;will-change:clip-path}
+  #camera{position:absolute;left:0;top:0;width:1920px;height:1080px;transform-origin:0 0;will-change:transform}
+  .app{position:absolute;left:260px;top:130px;width:1400px;height:820px;background:#fff;border-radius:18px;box-shadow:0 40px 120px rgba(20,20,30,.18),0 2px 0 rgba(0,0,0,.04);overflow:hidden;color:#16171B}
+  .app .top{height:64px;border-bottom:1px solid #ECEBE6;display:flex;align-items:center;gap:12px;padding:0 24px;font:600 18px var(--font-body)}
+  .app .dot{width:12px;height:12px;border-radius:50%;background:#E3E1DA}
+  .app .side{position:absolute;top:64px;left:0;bottom:0;width:240px;border-right:1px solid #ECEBE6;padding:24px;display:grid;gap:14px;align-content:start}
+  .app .side i{display:block;height:14px;border-radius:7px;background:#EEEDE8}
+  .app .main{position:absolute;top:64px;left:240px;right:0;bottom:0;padding:40px;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:auto 1fr;gap:24px}
+  .kpi{border:1px solid #ECEBE6;border-radius:14px;padding:22px}
+  .kpi b{display:block;font:700 44px/1 var(--font-display);letter-spacing:-.02em}
+  .kpi small{font:500 16px var(--font-body);color:#6B6C73}
+  .chart{grid-column:1/-1;border:1px solid #ECEBE6;border-radius:14px;padding:22px;position:relative}
+  .chart svg{width:100%;height:100%}
+  #cta{position:absolute;right:40px;top:12px;background:#16171B;color:#fff;font:600 18px var(--font-body);padding:12px 22px;border-radius:10px}
+  /* 4. cursor + ripple */
+  #cursor{position:absolute;left:0;top:0;width:34px;height:34px;will-change:transform;filter:drop-shadow(0 4px 8px rgba(0,0,0,.25))}
+  #ripple{position:absolute;width:20px;height:20px;border-radius:50%;border:3px solid var(--accent);opacity:0;pointer-events:none}
+  /* 5. end card */
+  #s5{display:grid;place-content:center;text-align:center;background:var(--bg)}
+  #s5 h2{font:800 120px/1 var(--font-display);letter-spacing:-.03em}
+  #s5 p{margin-top:28px;font:500 32px var(--font-body);color:var(--muted)}
+  #s5 .url{display:inline-block;margin-top:44px;font:700 30px var(--font-body);color:var(--bg);background:var(--accent);padding:16px 30px;border-radius:999px}
+</style></head>
+<body><div id="stage">
+  <section class="scene" id="s1">
+    <p class="kicker" id="kick">Introducing</p>
+    <div class="line"><span id="l1">Reports that</span></div>
+    <div class="line"><span id="l2">write <em>themselves.</em></span></div>
+  </section>
+  <section class="scene" id="s3">
+    <div id="camera">
+      <div class="app">
+        <div class="top"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span style="margin-left:12px">Acme Analytics</span><span id="cta">Generate report</span></div>
+        <div class="side"><i style="width:70%"></i><i></i><i style="width:55%"></i><i style="width:80%"></i></div>
+        <div class="main">
+          <div class="kpi"><small>Revenue</small><b id="k1">$0</b></div>
+          <div class="kpi"><small>Active users</small><b id="k2">0</b></div>
+          <div class="kpi"><small>Churn</small><b id="k3">0.0%</b></div>
+          <div class="chart"><svg viewBox="0 0 1000 380" preserveAspectRatio="none"><path id="area" d="" fill="rgba(255,90,31,.12)"/><path id="lineP" d="" fill="none" stroke="#FF5A1F" stroke-width="4" stroke-linejoin="round" stroke-linecap="round"/></svg></div>
+        </div>
+      </div>
+    </div>
+    <svg id="cursor" viewBox="0 0 24 24"><path d="M3 2l7.5 19 2.6-7.9L21 10.5z" fill="#111" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"/></svg>
+    <div id="ripple"></div>
+  </section>
+  <section class="scene" id="wipe"></section>
+  <section class="scene" id="s5"><div><h2>Acme Analytics</h2><p>From raw data to a board-ready report in one click.</p><span class="url">acme.example</span></div></section>
+</div>
+<script>
+/* ---------- timing (seconds) ---------- */
+const SCENES = { headlineIn: [0.2, 1.4], headlineOut: [2.1, 2.6], wipe: [2.3, 3.2], countUp: [3.0, 4.2], camera: [4.0, 6.2], cursor: [5.0, 6.4], click: 6.45, endIn: [7.2, 7.9] };
+window.__duration = 9;
+
+/* ---------- easing + tween helpers ---------- */
+const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+const prog = (t, [a, b]) => clamp((t - a) / (b - a));
+const E = {
+  outExpo: (x) => (x === 1 ? 1 : 1 - Math.pow(2, -10 * x)),
+  inOutCubic: (x) => (x < 0.5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2),
+  outBack: (x) => { const c1 = 1.4, c3 = c1 + 1; return 1 + c3 * Math.pow(x - 1, 3) + c1 * Math.pow(x - 1, 2); },
+  inOutQuint: (x) => (x < 0.5 ? 16 * x ** 5 : 1 - Math.pow(-2 * x + 2, 5) / 2),
+};
+const lerp = (a, b, p) => a + (b - a) * p;
+const $ = (id) => document.getElementById(id);
+
+/* chart data (replace with real numbers; never invent claims for a real brand) */
+const pts = [40, 60, 52, 90, 84, 120, 150, 140, 190, 230, 220, 270, 300];
+function chartPath(p) {
+  const n = pts.length - 1, w = 1000, h = 380, max = 320;
+  const xy = pts.map((v, i) => [ (i / n) * w, h - (v / max) * h * p ]);
+  const d = xy.map(([x, y], i) => (i ? "L" : "M") + x.toFixed(1) + " " + y.toFixed(1)).join(" ");
+  return { line: d, area: d + ` L ${w} ${h} L 0 ${h} Z` };
+}
+
+/* ---------- the render function: everything is derived from t ---------- */
+window.__render = (t) => {
+  // 1. headline: masked rise-in, then rise-out
+  const inP = E.outExpo(prog(t, SCENES.headlineIn)), outP = E.inOutCubic(prog(t, SCENES.headlineOut));
+  [["l1", 0], ["l2", 0.12]].forEach(([id, delay]) => {
+    const p = E.outExpo(prog(t, [SCENES.headlineIn[0] + delay, SCENES.headlineIn[1] + delay]));
+    $(id).style.transform = `translateY(${lerp(110, 0, p) - outP * 110}%)`;
+  });
+  $("kick").style.opacity = String(inP * (1 - outP));
+  $("s1").style.visibility = t < SCENES.wipe[1] ? "visible" : "hidden";
+
+  // 2. brand-shaped wipe: slanted bar sweeps left→right; scene 3 is revealed behind its trailing edge
+  const wp = E.inOutQuint(prog(t, SCENES.wipe));
+  const lead = lerp(-400, 2320, wp), trail = lerp(-400, 2320, clamp(wp * 1.35 - 0.35));
+  const slant = 260;
+  $("wipe").style.clipPath = `polygon(${trail}px 0, ${lead + slant}px 0, ${lead}px 1080px, ${trail - slant}px 1080px)`;
+  $("s3").style.clipPath = `polygon(-400px 0, ${trail}px 0, ${trail - slant}px 1080px, -400px 1080px)`;
+  $("wipe").style.visibility = wp > 0 && wp < 1 ? "visible" : "hidden";
+
+  // 3a. data count-up + chart draw
+  const cp = E.outExpo(prog(t, SCENES.countUp));
+  $("k1").textContent = "$" + Math.round(lerp(0, 48200, cp)).toLocaleString("en-US");
+  $("k2").textContent = Math.round(lerp(0, 12940, cp)).toLocaleString("en-US");
+  $("k3").textContent = lerp(0, 2.4, cp).toFixed(1) + "%";
+  const c = chartPath(cp); $("lineP").setAttribute("d", c.line); $("area").setAttribute("d", c.area);
+
+  // 3b. camera: push in toward the CTA (scale + translate on one wrapper = a dolly)
+  const cam = E.inOutCubic(prog(t, SCENES.camera));
+  const s = lerp(1, 1.55, cam), tx = lerp(0, -1290, cam), ty = lerp(0, -40, cam);
+  $("camera").style.transform = `translate(${tx}px, ${ty}px) scale(${s})`;
+
+  // 4. cursor travels a curved path to the CTA, then clicks
+  const cu = E.inOutCubic(prog(t, SCENES.cursor));
+  // target = the CTA's live on-screen position (so the cursor still lands if you change the layout or camera)
+  const rc = $("cta").getBoundingClientRect();
+  const p2 = [rc.left + rc.width * 0.55, rc.top + rc.height * 0.6], p0 = [1760, 1040], p1 = [p2[0] + 420, p2[1] + 420]; // quadratic Bézier
+  const bx = (1 - cu) ** 2 * p0[0] + 2 * (1 - cu) * cu * p1[0] + cu ** 2 * p2[0];
+  const by = (1 - cu) ** 2 * p0[1] + 2 * (1 - cu) * cu * p1[1] + cu ** 2 * p2[1];
+  const press = t > SCENES.click && t < SCENES.click + 0.12 ? 0.86 : 1;
+  $("cursor").style.transform = `translate(${bx}px, ${by}px) scale(${press})`;
+  $("cursor").style.opacity = t > SCENES.cursor[0] - 0.2 && t < SCENES.endIn[0] ? "1" : "0";
+  const rp = prog(t, [SCENES.click, SCENES.click + 0.6]);
+  const r = $("ripple");
+  r.style.opacity = rp > 0 && rp < 1 ? String(1 - rp) : "0";
+  r.style.transform = `translate(${p2[0] - 10}px, ${p2[1] - 10}px) scale(${lerp(1, 5, E.outExpo(rp))})`;
+
+  // 5. end card: circular reveal from the click point
+  const ep = E.inOutCubic(prog(t, SCENES.endIn));
+  $("s5").style.clipPath = `circle(${lerp(0, 2300, ep)}px at ${p2[0]}px ${p2[1]}px)`;
+};
+
+/* ---------- real-time preview when opened normally (render-video.mjs adds ?render=1) ---------- */
+if (!new URLSearchParams(location.search).has("render")) {
+  let t = 0, last = performance.now(), paused = false;
+  addEventListener("keydown", (e) => { if (e.code === "Space") paused = !paused; if (e.key === "ArrowRight") t += 0.5; if (e.key === "ArrowLeft") t = Math.max(0, t - 0.5); });
+  const loop = (now) => { if (!paused) t = (t + (now - last) / 1000) % window.__duration; last = now; window.__render(t); requestAnimationFrame(loop); };
+  requestAnimationFrame(loop);
+} else window.__render(0);
+</script></body></html>

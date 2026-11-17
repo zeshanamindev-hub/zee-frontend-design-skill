@@ -21,6 +21,9 @@ Never present a visual judgment about a site you only read as text.
 
 ---
 
+## Track 0: Harvest real assets (always first; it lifts the design most)
+Before any inspiration hunting: list the client's real logo, photos, product UI, video, proof and brand colours from the project, the live site, social profiles and Figma; then ask the user to upload what's missing and **wait** (`workflows/asset-intake.md`). Record everything in `.design/assets/inventory.md`. Extract colours with `scripts/extract-colors.py`.
+
 ## Track 1: Business & audience (always)
 From discovery plus the project: business model · primary conversion · audience segments · their jobs-to-be-done · top 3 objections/anxieties · price point · geography & language · brand personality.
 Output: a 6–10 line **business snapshot**.

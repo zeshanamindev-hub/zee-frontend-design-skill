@@ -1,5 +1,36 @@
 # Changelog — frontend-design-director
 
+## v0.4.0 — 2026-11-18
+**Why:** the v0.3 field run produced a page that looked generic ("just animations added"): box layout only, no full-width sections, no high-fidelity visual section. Cause: nothing enforced container-width variety, a hi-fi section, or niche-specific design. v0.4 makes variety, niche fit, real assets and honest rule-based recommendations mandatory, and adds dashboards, mobile apps and prototyping.
+
+**Added**
+- **Rules library** (`foundations/rules/`, 160 rules with IDs: C1–C12, L1–L20, T1–T12, U1–U30, H1–H14, D1–D14, S1–S10, I1–I10, R1–R9, K1–K10, A1–A9, B1–B10): the user's 12-category list + all 30 lawsofux.com entries, each with how-to numbers and an honest caveat (e.g. three-click rule debunked, golden ratio overstated, Miller's law misapplied, colour psychology weak evidence). README: task router, **honest layout-recommendation protocol**, conflict priority, violation workflow, phased audit checklist.
+- **Layout library** (`mediums/web-ui/layout-library.md`): 36 section layouts with IDs and default widths, a tested named-line grid for full / breakout / content / text / one-side-bleed widths (verified at 375–1920 px, no overflow), the **page composition contract** (anti-box rules), the page rhythm map, 30 app layout types, anti-box checks.
+- **Hi-fi visuals** (`mediums/web-ui/hifi-visuals.md`): 12 visual types (product theatre, art-directed photo, collage, SVG scenes, data-viz, type posters, 3D, video/cinemagraph, interactive demos, maps, texture, licensed AI imagery), chosen by available assets.
+- **Niche design profiles** (`foundations/niche-design-profiles.md`): 18 business types with conventions, colour options and the rule behind each, type, layout IDs, hi-fi, video, the category-breaking move, what to avoid.
+- **New mediums:** `mediums/dashboard/dashboard.md` (types, KPI tiles, chart choice, tables, data colour, states, a11y) and `mediums/mobile-app/mobile-app.md` (iOS 26 Liquid Glass / HIG 44 pt, Material 3 Expressive / 48 dp, nav-drawer deprecation, safe areas, thumb zone, core screens, store assets). Facts verified Nov 2026.
+- **New workflows:** `asset-intake.md` (harvest, then **ask the user to upload and pause**, then inventory, colour extraction, asset-driven layout), `redesign-revamp.md` (baseline captures, keep/rework/replace per section, SEO parity, **design ledger** to vary looks across sites), `feedback-reconciliation.md`, `prototyping.md` (fidelity ladder, 5-user test), `port-to-stack.md` (tokens → Tailwind v4 `@theme` / theme.json / Shopify settings, parity checks); `templates/` (facts, requirements + decisions, motion ledger, asset inventory, design ledger).
+- **New scripts (all tested):** `interaction-qa.mjs` (keyboard walk, focus visibility, names, alt, tabs, sliders, dialogs + focus return, **video seek + HTTP Range check**, reduced motion, overflow; caught 12 seeded bugs, passed the correct widgets); `render-video.mjs` + `scripts/templates/video-timeline.html` (HTML timeline → H.264 MP4 with masked reveals, brand-shaped wipe, camera dolly, cursor + click ripple; 9 s 1080p in ~26 s); `extract-colors.py` (real colours from logos/photos, monochrome detection).
+- **Art directions D13–D16:** Monochrome System (B&W brands; hierarchy by value/weight/texture; code highlighting without colour), Immersive Full-Bleed, Broken-Grid Collage, Product Theatre; style vocabulary (uistyleguide.com).
+- **Colour-scheme decision procedure** (`color-system.md` §7) using all ten colour rules + niche + competitors + real asset colours.
+- **Video:** niche video guide, Veo 3.1 prompt formula (from Google's guide), cinemagraph workflow (FFmpeg overlay recipe tested), animated/whiteboard explainer process; **tweening & easing** section in motion-graphics.
+- **Gotchas list** (`implementation.md` §6), incl. the verified range-request bug: Python `http.server` returns 200 (no seeking); `npx http-server` returns 206.
+- **Trends 2026–2027 synthesis** with cautions and Pixelean's skip list; accessibility law update (EN 301 549 V4.1.1, Sep 2026 → WCAG 2.2 AA).
+
+**Changed**
+- `capture.mjs`: scroll-first full-page/section captures (lazy images + scroll reveals render), image/font waits, console/page errors, failed requests, broken images, overflow reported at **> 0 px** (was > 1), multiple URLs / `--list`, `--sections`, `report.json`.
+- `palette.py`: `--mono` mode (auto when OKLCH chroma < 0.03): neutral scale + light/dark value systems with contrast verdicts + hierarchy-without-colour guidance; no meaningless harmonies.
+- `make-gif.sh`: `--max-mb N` size budget (fps → colours → width ladder; exit 3 if impossible). Tested: 2.47 MB → 1.16 MB. (An ordered-dither step was tried and removed: it made the test GIF *bigger*.)
+- Anti-generic detector: 12 → **14 checks** (box layout, no hi-fi section) + scoring clarifications (a real-number proof strip ≠ icon cards; every motion needs a ledger reason; partial credit doesn't exist) + litmus checks.
+- Discovery: job-type round, **asset upload pause**; research Track 0 (asset harvest); section plan gains layout ID, container width, hi-fi, rule IDs, motion ledger, facts; competitor analysis gains section-by-section captures and a layout census; content strategy gains the facts register with client-site contradiction checks; audit uses the rules checklist and `interaction-qa.mjs`.
+- SKILL.md rewritten (modes J redesign, K dashboard, L mobile app, M prototype; 10-step spine; 15 hard rules).
+
+**Verified**
+- Frontmatter: `when_to_use` and `${CLAUDE_SKILL_DIR}` inside `allowed-tools` are supported by **Claude Code** (checked against the Claude Code skills docs in v0.3). Combined description + when_to_use = 1,152 / 1,536 chars.
+- ⚠ **Compatibility:** uploading this skill to claude.ai or the Skills API rejects unknown frontmatter keys such as `when_to_use`. For those surfaces, merge `when_to_use` into `description` and delete the key.
+
+**Sources that couldn't be read** (robots/blocked): 11 figma.com/resource-library pages (AI tools, outpainting, AI animation, node-based AI, AI video, AI video prompts, tweening, whiteboard animation, cinemagraphs, animated videos, bad-digital-experiences survey), medium.com 2027 trends, behance.net Design Trends 2026. Topics covered from other primary sources and marked.
+
 ## v0.3.0 — 2026-11-17
 **Added**
 - **Browser tools** (`toolchain/browser-tools.md`): Playwright MCP + Claude in Chrome setup steps (verified against the Playwright MCP README and Claude Code docs), when to use which, and how each workflow uses them

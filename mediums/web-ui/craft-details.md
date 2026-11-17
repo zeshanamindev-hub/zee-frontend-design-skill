@@ -26,6 +26,11 @@ Premium is not more effects. It's **many small decisions done consistently**. Us
 - Close-up crops and unexpected scale create interest. [Source: "Give people something to look at"; "Break the pattern"]
 - `alt` text describes purpose; decorative images get `alt=""`.
 
+## 3b. Light, depth and text over images [Source: learnui.design, E. Kennedy, "7 Rules for Creating Gorgeous UI" (2024 update)]
+- **Light comes from the sky:** raised elements (buttons, cards, dropdowns, popups, slider knobs) get a slightly lighter top and a soft shadow below; recessed elements (inputs, pressed buttons, slider tracks, unchecked boxes) get an inner shadow at the top. Keep it subtle ("flatty": flat + light shadows). Higher layers are slightly brighter in dark mode.
+- **Black and white first:** design the layout in greyscale; add colour last and only with a job (one accent, or shades of one hue).
+- **Text over images, from safest to riskiest:** (2) text in a solid/semi-opaque box · (1) full-image overlay (≈ 35% black, or a brand-colour overlay) · (4) floor fade: gradient darkening the bottom third + faint text shadow (or "floor blur") · (3) blur the area behind the text · bonus: radial scrim behind the text · (0) direct text on the image only if the image is dark and calm **and** you've tested every breakpoint and crop. Always verify the result with `contrast.py` against the *lightest* pixel behind the text.
+
 ## 4. Interaction states — design ALL of them (hi-fi = complete)
 For every interactive component: **default · hover · focus-visible · active/pressed · disabled · loading**.
 For every data view: **loading (skeleton matching the layout) · empty (helpful, with an action) · error (what happened + how to fix) · success · partial/long content**.

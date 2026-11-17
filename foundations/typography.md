@@ -127,3 +127,12 @@ Why ★: <tie to personality words, audience, competitor gap, language support>
 - Verified free options: **Noto Sans Arabic**, **Noto Nastaliq Urdu** (traditional Urdu style; needs more line height), **IBM Plex Sans Arabic**; the **Noto** family covers most scripts.
 - RTL layouts: `dir="rtl"`, CSS logical properties (`margin-inline-start`, `padding-inline`), mirrored icons where direction matters (arrows), not mirrored where it doesn't (logos, media controls).
 - Pair Latin and non-Latin fonts with similar weight and x-height so mixed text looks even.
+
+## 10. v0.4 additions: rules, leading and emphasis
+- The 12 typography rules with numbers and caveats are in `rules/03-typography.md` (T1–T12).
+- **Leading conflict, resolved:** Figma's typography guide gives 112.5–120% line height as the rule; that's right for **headings/display** but too tight for body text. Body 1.45–1.65, and layouts must survive a user-set 1.5 (WCAG 1.4.12). [Source: figma.com/resource-library/typography-in-design]
+- **Line length:** 45–75 characters (Figma: 40–60 for English); `max-width: 65ch`.
+- **Golden-ratio type scale (1.618)** is for posters and single hero moments; for UI hierarchies use 1.2–1.333 (T4).
+- **Pop / un-pop (Kennedy):** emphasise with size, weight, contrast, caps + tracking or space; hover/selected states change colour/background/underline, never size or weight (reflow). [Source: learnui.design, 7 rules (2024 update), rule 5]
+- **Extra free UI faces seen in 2024–2026 sources:** Satoshi (Fontshare, ITF Free Font License, not OFL), Metropolis (OFL, GitHub), Figtree, Source Sans 3, Geist / Geist Mono (OFL), Hanken Grotesk, Rethink Sans, Sofia Sans, Jost, Epilogue, Source Serif 4, Instrument Serif. Check each licence on the font's own page before shipping. [Sources: learnui.design rule 6; figma.com/resource-library/minimalist-fonts]
+- **Minimalist type advice:** hierarchy from weight and size, not decoration; no shadows, outlines or gradients on text; preview on multiple screens and lighting conditions. [Source: Figma minimalist fonts]

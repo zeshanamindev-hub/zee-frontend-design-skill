@@ -38,6 +38,8 @@ Rules: check commercial-use terms for the plan used; never generate real people,
 
 **Prompt structure:** subject · composition/camera · setting · lighting · style/medium · color palette (name the 60/30/10 hex roles) · mood · aspect ratio · what to avoid.
 
+**v0.4 additions:** node-based workflows (ComfyUI, open source; Figma Weave, hosted) keep a whole campaign consistent (same references, seeds, prompts); **outpainting / generative expand** adapts real photos to new aspect ratios without cropping the subject. Details and licence rules: `toolchain/asset-generation.md` §3. Store-screenshot and social sets are built in HTML and exported with `capture.mjs render` at exact sizes.
+
 ## 5. Common sizes (verify current platform specs before publishing)
 | Use | Size (px) |
 |---|---|

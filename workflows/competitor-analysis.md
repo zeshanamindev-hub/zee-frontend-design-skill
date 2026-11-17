@@ -14,11 +14,13 @@ The output of this workflow feeds **four** things: the art direction (how to sta
 
 ## 2. Capture (evidence first)
 For each competitor, capture the homepage + 2–3 key pages (pricing, main service/product, about, a top blog post):
-- **Screenshots:** `node ${CLAUDE_SKILL_DIR}/scripts/capture.mjs shots <url> --out .design/shots/<name> --widths 375,1440 --full` (or Playwright MCP / Claude in Chrome; see `toolchain/browser-tools.md`).
+- **Screenshots:** all competitors in one run: put the URLs in `.design/research/competitors.txt` and run `node ${CLAUDE_SKILL_DIR}/scripts/capture.mjs shots --list .design/research/competitors.txt --out .design/shots --widths 375,1440 --full --sections` (one folder per site, one PNG per section, so you can compare competitors **section by section**: whose hero, whose proof, whose pricing). Or use Playwright MCP / Claude in Chrome; see `toolchain/browser-tools.md`.
+- **Layout census:** for each competitor, note the layout ID of every section (`mediums/web-ui/layout-library.md`) and the width mix. If every competitor uses the same hero type, that's the cliché to break (G1).
 - **Text & structure:** WebFetch each page: title tag, meta description, H1, H2 outline, CTAs, offer, word count, internal links, schema hints.
 - **Reviews:** Google reviews, Trustpilot, G2/Capterra, app stores, Reddit/forums: collect repeated praise and complaints **in the customers' own words**.
 - **Optional data:** Semrush MCP (traffic, top keywords, top pages), PageSpeed Insights (speed).
 If no browser tool is connected, label all visual findings "not seen" and ask the user for screenshots.
+- **Facts:** competitor claims you plan to compare against go into `.design/content/facts.md` with URL + capture date (comparison tables must be sourced, K6).
 
 ## 3. Analyze: the 12-point scorecard (1–5 each, with evidence)
 | # | Dimension | What to record |

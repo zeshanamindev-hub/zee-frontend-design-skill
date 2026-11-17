@@ -3,7 +3,7 @@
 Use when the user asks to review, audit, critique or improve an existing site, page, section, Figma file or screenshot.
 
 ## 1. Gather the evidence
-- **Live URL:** WebFetch (structure + copy) + browser screenshots at 375 / 768 / 1440 if a browser tool exists. Otherwise ask for screenshots and mark visual findings as "not seen".
+- **Live URL:** WebFetch (structure + copy) + `capture.mjs shots <url> --widths 375,768,1440 --full --sections` (its `report.json` lists overflow, console errors, failed requests and broken images: real defects). Otherwise ask for screenshots and mark visual findings as "not seen".
 - **Codebase:** inspect components, tokens, CSS, fonts and images (SKILL.md Step 1).
 - **Figma:** Figma MCP if connected.
 - **Performance:** PageSpeed Insights / Lighthouse data (the user can run it, or fetch the PSI result page if accessible). Never guess scores.
@@ -13,10 +13,12 @@ Use when the user asks to review, audit, critique or improve an existing site, p
 | Lens | Check with |
 |---|---|
 | **Visual design** | 60/30/10 · one color leads · type system · hierarchy · spacing · alignment · 9 principles (`foundations/principles.md`) |
-| **AI-slop / genericness** | `foundations/anti-ai-slop.md`: generic-design detector score (0–12), banned defaults, logo-swap test |
+| **Rules library** | `foundations/rules/README.md` §5 phased checklist (structure → interaction → components → visual → accessibility); cite rule IDs in every finding |
+| **AI-slop / genericness** | `foundations/anti-ai-slop.md`: generic-design detector score (0–14, incl. box layout and missing hi-fi section), banned defaults, logo-swap/brand/image tests |
+| **Layout variety** | `mediums/web-ui/layout-library.md` §6 anti-box checks: width mix, card count, hi-fi section, rhythm |
 | **Design laws & physics** | `foundations/design-laws-and-physics.md`: Gestalt grouping, Hick/Fitts, visual weight, optical alignment, light/shadow consistency, motion physics |
 | **Usability** (Nielsen's 10 heuristics) | visibility of status · match with real world · user control · consistency · error prevention · recognition over recall · flexibility · minimalist design · error recovery · help |
-| **Accessibility** (WCAG 2.2 AA) | contrast (run contrast.py), keyboard, focus visible, alt text, headings, labels, target size, reduced motion |
+| **Accessibility** (WCAG 2.2 AA) | contrast (run contrast.py), `scripts/interaction-qa.mjs` (keyboard walk, focus visible, names, alt, tabs, sliders, dialogs, video seek, reduced motion), headings, labels, target size |
 | **CRO** | `foundations/cro.md` audit checklist: value prop clarity, CTA, friction, trust, objections |
 | **Content** | specificity, clarity, scannability, claims backed by evidence, tone |
 | **Responsive** | each breakpoint: layout, order, tap targets, overflow, image crops (`mediums/web-ui/responsive.md` bug list) |

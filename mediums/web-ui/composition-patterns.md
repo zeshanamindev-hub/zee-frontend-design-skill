@@ -1,5 +1,7 @@
 # Composition patterns (web UI)
 
+> The full section catalogue with IDs (H-, N-, F-, P-, C-), container widths and the page composition contract is in `layout-library.md`. This file keeps the hero archetypes and rhythm principles.
+
 Choose components and layouts by **the type of information**, not the generator's default pattern. [Source: DOCX]
 Work **composition first**: decide sections, priority and layout as a grayscale wireframe, then apply style. [Source: DOCX "layout before styling"]
 
